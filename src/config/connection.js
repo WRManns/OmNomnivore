@@ -1,6 +1,10 @@
 require('dotenv').config();
 
 const Sequelize = require('sequelize');
+const Documenu = require('documenu')
+
+
+Documenu.configure(process.env.API_KEY)
 
 const sequelize = process.env.JAWSDB_URL
   ? new Sequelize(process.env.JAWSDB_URL)
