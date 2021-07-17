@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.18.0",
+    "documenu": "^1.1.0",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
