@@ -4,7 +4,7 @@ import NavXample from "./components/Navbar/Navbar";
 import Search from "./components/SearchBar/SearchBar";
 import Example from "./components/Card/Card"
 import Wrapper from "./components/Wrapper/index";
-import Login from "./pages/login";
+import Login from "./pages/mainpage";
 import "./App.css";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <NavXample />
       <Router>
         <Switch>
-          <Route exactp path="/login" component = {Login} />
+          <Route exact path="/mainpage" component = {Login} />
         </Switch>
       </Router>
         <Wrapper>
