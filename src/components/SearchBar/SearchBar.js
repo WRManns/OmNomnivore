@@ -17,17 +17,23 @@ const Search = ({placeholder, data}) => {
   return (
     <div className="search">
       <InputGroup>
-        <Input className="searchField" type="text" placeholder={placeholder} />
-        <Button className="searchBtn" type="submit">SEARCH</Button>
-        <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle caret>
-          Whatcha Wanna Search By?
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem className="restaurantToggle">By Restaurant</DropdownItem>
-            <DropdownItem className="recipeToggle">By Recipe</DropdownItem> 
-          </DropdownMenu>
-        </ButtonDropdown>
+        <div className="searchField">
+            <Input type="text" placeholder={placeholder} />
+        </div>
+        <div className="searchBtn">
+            <Button type="submit">SEARCH</Button>
+        </div>
+        <div className="searchToggler">
+            <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle caret>
+                    Whatcha Wanna Search By?
+                </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem className="restaurantToggle">By Restaurant</DropdownItem>
+                        <DropdownItem className="recipeToggle">By Recipe</DropdownItem> 
+                    </DropdownMenu>
+            </ButtonDropdown>
+        </div>
       </InputGroup>
     </div>
   );

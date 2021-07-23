@@ -10,12 +10,13 @@ import "./App.css";
 function App() {
   return (
     <div className="container">
-      <NavXample />
       <Router>
         <Switch>
-          <Route exactp path="/login" component = {Login} />
+          <Route exact path="/login" component = {Login} />
         </Switch>
       </Router>
+      
+      <NavXample />
         <Wrapper>
         <Search placeholder="Enter Search..."/>
           <Example>
