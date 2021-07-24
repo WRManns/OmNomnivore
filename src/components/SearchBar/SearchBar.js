@@ -59,7 +59,7 @@ const Search = ({placeholder, data}) => {
           </div>       
           {/* <div className="dataResult">
             {data.map((value, key) => {
-              return <a>{value.title}</a>
+              return <a className=>{value.title}</a>
             })}
           </div> */}
             
