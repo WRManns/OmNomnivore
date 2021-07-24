@@ -1,5 +1,7 @@
 -- DROP DATABASE
-DROP DATABASE IF EXISTS recipe_db;
+DROP DATABASE IF EXISTS omnomnivore_db;
 
 -- CREATE DATABASE
-CREATE DATABASE recipe_db;
+CREATE DATABASE omnomnivore_db;
+
+
