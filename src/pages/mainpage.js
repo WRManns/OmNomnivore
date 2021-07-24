@@ -6,5 +6,7 @@ function Login(){
 <div class="container">
   <h1 class="display-4">Welcome to OmNomnivore! </h1>
 </div>
-</div>)}
-export default Login 
+</div>)
+
+}
+export default Login

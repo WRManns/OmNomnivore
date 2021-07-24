@@ -4,7 +4,8 @@ import NavXample from "./components/Navbar/Navbar";
 import Search from "./components/SearchBar/SearchBar";
 import Example from "./components/Card/Card"
 import Wrapper from "./components/Wrapper/index";
-import Login from "./pages/mainpage";
+import Login from "./pages/mainpage.js";
+import LogIn from './components/Loginbtn/btns.js'
 import "./App.css";
 
 function App() {
