@@ -1,6 +1,6 @@
 import React from 'react';
-import "./src/pages/css/OmNom.css";
-function Login(){
+
+function Welcome(){
     return(
 <div class="jumbotron jumbotron-fluid">
 <div class="container">
@@ -9,4 +9,4 @@ function Login(){
 </div>)
 
 }
-export default Login
+export default Welcome
