@@ -18,7 +18,6 @@ const NavXample = (props) => {
   return (
     <div>
       <Navbar >
-        {/* <NavbarBrand href="/">OmNomnivore</NavbarBrand> */}
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
