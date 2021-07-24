@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-function LogIn(){
+function LogBtn(){
   return(
 <div className="buttons">
 <Button variant="primary" size="lg">
@@ -11,4 +11,4 @@ function LogIn(){
 </Button>
 </div>
   )}
-export default LogIn
+export default LogBtn

@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/" />
         </Switch>
       </Router>
-
+      <LogBtn />
       <Welcome />
       <NavXample />
         <Wrapper>
