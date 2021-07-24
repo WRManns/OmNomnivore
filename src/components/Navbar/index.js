@@ -3,7 +3,7 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
+  // NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -17,8 +17,8 @@ const NavXample = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">OmNomnivore</NavbarBrand>
+      <Navbar >
+        {/* <NavbarBrand href="/">OmNomnivore</NavbarBrand> */}
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
