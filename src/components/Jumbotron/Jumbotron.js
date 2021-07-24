@@ -6,5 +6,7 @@ function Welcome(){
 <div class="container">
   <h1 class="display-4">Welcome to OmNomnivore! </h1>
 </div>
-</div>)}
+</div>)
+
+}
 export default Welcome

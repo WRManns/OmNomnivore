@@ -5,6 +5,7 @@ import Search from "./components/SearchBar/SearchBar";
 import Example from "./components/Card/Card"
 import Wrapper from "./components/Wrapper/index";
 import Welcome from "./components/Jumbotron/Jumbotron";
+import LogBtn from "./components/Loginbtn/btns.js";
 import "./App.css";
 
 
@@ -16,7 +17,7 @@ function App() {
           <Route exact path="/" />
         </Switch>
       </Router>
-
+      <LogBtn />
       <Welcome />
       <NavXample />
         <Wrapper>
