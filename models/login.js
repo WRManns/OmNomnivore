@@ -20,7 +20,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
+    zipcode: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
