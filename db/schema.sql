@@ -1,0 +1,7 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS omnomnivore_db;
+
+-- CREATE DATABASE
+CREATE DATABASE omnomnivore_db;
+
+

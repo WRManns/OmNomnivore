@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.jumbotron {
+  background-color: transparent;
+}
+
+body {
+   background-image: url("./Assets/omnom_bg.png");
+}
+
+
+.display-4 {
+   text-align: center;
+   color: white;
+   font-weight: bold;
+}
+
+
+.btn-primary {
+   background-color: rgba(0, 112, 9, 0.836) ;
+   
+}
+.btn-primary:hover {
+   background-color: rgb(160, 229, 165);
+}
+.btn-secondary {
+   background-color: rgba(0, 112, 9, 0.836) ;
+}
+.btn:hover {
+   background-color: rgb(160, 229, 165);
+}
+.card {
+   border-color: rgba(0, 112, 9, 0.836) ;
+   border-width: .5rem;
+   
+}
+
+.navbar {
+  color: white;
+  margin-bottom: 2rem;
+  /* margin-left: 60rem; */
+  font-style: italic;
+  font-weight: bolder;
+  background-image: url("./Assets/omnom_bg.png");
+}
