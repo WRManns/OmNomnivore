@@ -1,25 +1,30 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import NavXample from "./components/Navbar/Navbar";
+import NavXample from "./components/Navbar/index";
 import Search from "./components/SearchBar/SearchBar";
 import Example from "./components/Card/Card"
 import Wrapper from "./components/Wrapper/index";
-import Login from "./pages/login";
+import Welcome from "./components/Jumbotron/Jumbotron";
+import LogBtn from "./components/Loginbtn/btns.js";
 import "./App.css";
+
 
 function App() {
   return (
     <div className="container">
-      <NavXample />
       <Router>
         <Switch>
-          <Route exactp path="/login" component = {Login} />
+          <Route exact path="/" />
         </Switch>
       </Router>
+      <LogBtn />
+      <Welcome />
+      <NavXample />
         <Wrapper>
-        <Search placeholder="Enter Search..."/>
+        <Search placeholder="Enter Search..." />
           <Example>
           </Example>
+          
         </Wrapper>
     </div>
   );
