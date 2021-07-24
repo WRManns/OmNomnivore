@@ -1,4 +1,3 @@
-
 //start sequelize
 const Sequelize = require('sequelize');
 //start dotenv
@@ -21,5 +20,9 @@ if (process.env.JAWSDB_URL) {
     }
   );
 }
+
+const Documenu = require('documenu')
+Documenu.configure(process.env.API_KEY)
+
 
 module.exports = sequelize;
