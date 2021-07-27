@@ -9,8 +9,8 @@ import {
   DropdownItem
  } from 'reactstrap';
  import './SearchBar.css';
- import SearchIcon from '@material-ui/icons/Search';
- import CloseIcon from "@material-ui/icons/Close";
+ //import SearchIcon from '@material-ui/icons/Search';
+ //import CloseIcon from "@material-ui/icons/Close";
 
 
 const Search = ({placeholder, data}) => {
@@ -50,12 +50,7 @@ const Search = ({placeholder, data}) => {
             onChange={handleFilter}
             />
         </div>
-        <div className="searchIcon">
-        {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
+      
           </div>       
           {filteredData.length !== 0 && (
         <div className="dataResult">
@@ -68,6 +63,7 @@ const Search = ({placeholder, data}) => {
           })}
           </div>
             )}
+
 
             <ButtonDropdown className="searchToggler" isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle caret>
