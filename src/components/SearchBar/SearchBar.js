@@ -9,8 +9,8 @@ import {
   DropdownItem
  } from 'reactstrap';
  import './SearchBar.css';
- import SearchIcon from '@material-ui/icons/Search';
- import CloseIcon from "@material-ui/icons/Close";
+ //import SearchIcon from '@material-ui/icons/Search';
+ //import CloseIcon from "@material-ui/icons/Close";
 
 
 const Search = ({placeholder, data}) => {
@@ -50,13 +50,13 @@ const Search = ({placeholder, data}) => {
             onChange={handleFilter}
             />
         </div>
-        <div className="searchIcon">
+       {/*  <div className="searchIcon">
         {filteredData.length === 0 ? (
             <SearchIcon />
           ) : (
             <CloseIcon id="clearBtn" onClick={clearInput} />
           )}
-          </div>       
+          </div>  */}      
           {/* <div className="dataResult">
             {data.map((value, key) => {
               return <a>{value.title}</a>
