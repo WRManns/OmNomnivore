@@ -69,7 +69,7 @@ const Search = ({placeholder, data}) => {
           </div>
             )}
 
-            <ButtonDropdown className="searchToggler" isOpen={dropdownOpen} toggle={toggle}>
+            <ButtonDropdown className="searchToggler btn-sm" isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle caret>
                     Search Toggle
                 </DropdownToggle>

@@ -72,11 +72,4 @@ body {
    
 }
 
-.navbar {
-  color: white;
-  margin-bottom: 2rem;
-  /* margin-left: 60rem; */
-  font-style: italic;
-  font-weight: bolder;
-  background-image: url("./Assets/omnom_bg.png");
-}
+
