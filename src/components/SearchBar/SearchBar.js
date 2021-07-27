@@ -50,19 +50,21 @@ const Search = ({placeholder, data}) => {
             onChange={handleFilter}
             />
         </div>
-       {/*  <div className="searchIcon">
-        {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
-          </div>  */}      
-          {/* <div className="dataResult">
-            {data.map((value, key) => {
-              return <a>{value.title}</a>
-            })}
-          </div> */}
-            
+      
+          </div>       
+          {filteredData.length !== 0 && (
+        <div className="dataResult">
+          {filteredData.slice(0, 15).map((value, key) => {
+            return (
+              <a className="dataItem" href={value.link} target="_blank">
+                <p>{value.title} </p>
+              </a>
+            );
+          })}
+          </div>
+            )}
+
+
             <ButtonDropdown className="searchToggler" isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle caret>
                     Search Toggle

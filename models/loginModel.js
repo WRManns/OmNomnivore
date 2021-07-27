@@ -62,4 +62,4 @@ User.init(
   }
 );
 
-module.exports = Login;
+module.exports = LoginModel;
