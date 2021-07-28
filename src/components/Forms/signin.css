@@ -7,3 +7,14 @@ Label {
 font-weight: bolder;
 
 }
+.SignIn {
+    background-color: transparent;
+    padding: 2rem;
+    border-radius: .2rem;
+    width:25rem;
+
+}
+H1 {
+    margin-left: 5rem;
+    color: green;
+}
