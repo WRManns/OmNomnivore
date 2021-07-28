@@ -9,7 +9,7 @@ const BASEURL = "https://api.spoonacular.com/recipes/" ;
 
   let SearchSimilarFoods = function(query) {
     console.log(query)
-    return axios.get(BASEURL + query + '/similar?apiKey=5611695fd3084ec98bb237fe4c5823ed' );//+ APIKEY );
+    return axios.get(BASEURL + query + '/similar?number=1&apiKey=a2d495a4dfbf4e9fb494d80589c30e68' );//+ APIKEY );
 
     //return axios.get(BASEURL + query + "/similar?apiKey=" + APIKEY);
   }
