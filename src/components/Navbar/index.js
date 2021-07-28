@@ -9,6 +9,7 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
+import './style.css';
 
 const NavXample = (props) => {
   const [isOpen, setIsOpen] = useState(false);
