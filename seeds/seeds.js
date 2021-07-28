@@ -11,8 +11,13 @@ const seedDatabase = async() => {
         returning: true,
     });
 
-    }
+    // for (const work of workData) {
+    //     await Work.create({
+    //         ...work,
+    //     });
+    // }
 
     process.exit(0);
+};
 
 seedDatabase();
