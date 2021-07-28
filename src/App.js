@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import NavXample from "./components/Navbar/index";
-import Search from "./components/SearchBar/SearchBar";
+import SearchForm from "./components/SearchForm/SearchForm";
 import Example from "./components/Card/Card"
 import LogBtn from "./components/Buttons/btns.js";
 import Wrapper from "./components/Wrapper/index";
@@ -22,7 +22,7 @@ function App() {
       <Welcome />
       <NavXample />
         <Wrapper>
-        <Search placeholder="Enter Search..." />
+        <SearchForm />
           <Example>
           </Example>
           <SignIn>
