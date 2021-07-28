@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const { LoginModel } = require("./models");
+const { LoginModel } = require("././models");
 
 
 //C- Create- Checks user into the website
 router.post("/", (req, res) => {
   console.log("singup api route")
-    User.create({
+    LoginModel.create({
       username: req.body.username,
       password: req.body.password,
       zipcode: req.body.zipcode,
@@ -32,7 +32,7 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
     console.log("logged in")
     console.log(req.session)
-    User.findOne({
+    LoginModel.findOne({
       where: {
         username: req.body.username,
       },
@@ -76,7 +76,7 @@ router.post("/login", (req, res) => {
 
 // R- gets the API users
 router.get("/", (req, res) => {
-  User.findAll({
+  LoginModel.findAll({
     attributes: { exclude: ["password"] },
   })
     .then((userInfo) => res.json(userInfo))
@@ -88,17 +88,12 @@ router.get("/", (req, res) => {
 
 // R- gets a single user
 router.get("/:id", (req, res) => {
-  User.findOne({
+  LoginModel.findOne({
     attributes: { exclude: ["password"] },
     where: {
       id: req.params.id,
     },
-    // include: 
-    // [
-    //   {
-    //     model: Games,
-    //     attributes: ["id", "appID", "playtime_forever"],
-    //   },
+
     //   //  Comment model here:
     //   {
     //     model: Comment,
@@ -129,7 +124,7 @@ router.get("/:id", (req, res) => {
 
 // U- update users
 router.put("/:id", (req, res) => {
-  User.update(req.body, {
+  LoginModel.update(req.body, {
     individualHooks: true,
     where: {
       id: req.params.id,
@@ -150,7 +145,7 @@ router.put("/:id", (req, res) => {
 
 // D- Delete a user
 router.delete("/:id", (req, res) => {
-  User.destroy({
+  LoginModel.destroy({
     where: {
       id: req.params.id,
     },

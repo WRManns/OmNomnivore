@@ -39,6 +39,8 @@ const Search = ({placeholder, data}) => {
     setWordEntered("");
   };
 
+  const searchInput = () => {}
+
   return (
     
       <InputGroup>
@@ -50,9 +52,10 @@ const Search = ({placeholder, data}) => {
             onChange={handleFilter}
             />
         </div>
+      
         <div className="searchIcon">
         {filteredData.length === 0 ? (
-            <SearchIcon />
+            <SearchIcon id="searchIcon" onClick={searchInput}/>
           ) : (
             <CloseIcon id="clearBtn" onClick={clearInput} />
           )}
@@ -68,8 +71,21 @@ const Search = ({placeholder, data}) => {
           })}
           </div>
             )}
+             
+          {/* {filteredData.length !== 0 && (
+        <div className="dataResult">
+          {filteredData.slice(0, 15).map((value, key) => {
+            return (
+              <a className="dataItem" href={value.link} target="_blank">
+                <p>{value.title} </p>
+              </a>
+            );
+          })}
+          </div>
+            )} */}
 
-            <ButtonDropdown className="searchToggler btn-sm" isOpen={dropdownOpen} toggle={toggle}>
+
+            <ButtonDropdown className="searchToggler" isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle caret>
                     Search Toggle
                 </DropdownToggle>
