@@ -7,6 +7,7 @@ import LogBtn from "./components/Buttons/btns.js";
 import Wrapper from "./components/Wrapper/index";
 import Welcome from "./components/Jumbotron/Jumbotron";
 import SignIn from "./components/Forms/signin.js";
+import Register from "./components/register/register.js"
 import "./App.css";
 
 
@@ -26,6 +27,7 @@ function App() {
           </Example>
           <SignIn>
           </SignIn>
+          <Register/>
           <LogBtn />
         </Wrapper>
     </div>
