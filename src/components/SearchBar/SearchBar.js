@@ -2,45 +2,51 @@ import React, { useState } from 'react';
 import {
   InputGroup,
   Input,
-  // Button,
-  ButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  Button,
+  // ButtonDropdown,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem
  } from 'reactstrap';
  import './SearchBar.css';
- import SearchIcon from '@material-ui/icons/Search';
- import CloseIcon from "@material-ui/icons/Close";
+//  import SearchIcon from '@material-ui/icons/Search';
+//  import CloseIcon from "@material-ui/icons/Close";
 
 
-const Search = ({placeholder, data}) => {
-  const [filteredData, setFilteredData] = useState([]);
+const Search = ({placeholder, searchWord}) => {
+  // const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const [dropdownOpen, setOpen] = useState(false);
+  // const [dropdownOpen, setOpen] = useState(false);
 
-  const toggle = () => setOpen(!dropdownOpen);
+  // const toggle = () => setOpen(!dropdownOpen);
 
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
+  // // const handleFilter = (event) => {
+  // //   const searchWord = event.target.value;
+  // //   setWordEntered(searchWord);
+  // //   const newFilter = data.filter((value) => {
+  // //     return value.title.toLowerCase().includes(searchWord.toLowerCase());
+  // //   });
+
+  //   if (searchWord === "") {
+  //     setFilteredData([]);
+  //   } else {
+  //     setFilteredData(newFilter);
+  //   }
+  // };
+
+  // const clearInput = () => {
+  //   setFilteredData([]);
+  //   setWordEntered("");
+  // };
+
+  // const searchInput = () => {
+
+  // };
+const consoleLog = (event) => {
+  const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
-
-  const searchInput = () => {}
-
+    console.log(searchWord);
+}
   return (
     
       <InputGroup>
@@ -49,11 +55,12 @@ const Search = ({placeholder, data}) => {
             type="text" 
             placeholder={placeholder} 
             value={wordEntered}
-            onChange={handleFilter}
+            onChange={setWordEntered}
             />
+            <Button id="searchIcon" onClick={consoleLog}/>
         </div>
-      
-        <div className="searchIcon">
+        
+        {/* <div className="searchIcon">
         {filteredData.length === 0 ? (
             <SearchIcon id="searchIcon" onClick={searchInput}/>
           ) : (
@@ -70,7 +77,7 @@ const Search = ({placeholder, data}) => {
             );
           })}
           </div>
-            )}
+            )} */}
              
           {/* {filteredData.length !== 0 && (
         <div className="dataResult">
@@ -85,7 +92,7 @@ const Search = ({placeholder, data}) => {
             )} */}
 
 
-            <ButtonDropdown className="searchToggler" isOpen={dropdownOpen} toggle={toggle}>
+            {/* <ButtonDropdown className="searchToggler" isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle caret>
                     Search Toggle
                 </DropdownToggle>
@@ -93,7 +100,7 @@ const Search = ({placeholder, data}) => {
                         <DropdownItem className="restaurantToggle">By Restaurant</DropdownItem>
                         <DropdownItem className="recipeToggle">By Recipe</DropdownItem> 
                     </DropdownMenu>
-            </ButtonDropdown>
+            </ButtonDropdown> */}
      </InputGroup> 
         
   );
