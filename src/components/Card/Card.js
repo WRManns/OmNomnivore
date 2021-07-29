@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, } from 'reactstrap';
 // import "./style.css";
 /* import AutoCompleteRecipe from './recipeAutoAPI'
 import SearchSimilarFoods from './recipeSearchAPI' */
@@ -85,7 +85,6 @@ import {List, ListItem} from "../List"
             )}
           
           </CardText>
-          <Button>Button</Button>
         </CardBody>
       </Card>
     

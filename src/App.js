@@ -8,6 +8,7 @@ import Wrapper from "./components/Wrapper/index";
 import Welcome from "./components/Jumbotron/Jumbotron";
 import SignIn from "./components/Forms/signin.js";
 import Register from "./components/register/register.js"
+import Intro from "./components/Intoduction/Welcome.js"
 import "./App.css";
 
 
@@ -29,6 +30,7 @@ function App() {
           </SignIn>
           <Register/>
           <LogBtn />
+          <Intro/>
         </Wrapper>
     </div>
   );
