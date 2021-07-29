@@ -1,0 +1,26 @@
+[{
+    "username": "John",
+    "zipcode": "44107",
+    "email": "john@hotmail.com",
+    "password": "Password12345",
+    "is_manager": true,
+    "manager_id": null
+},
+{
+    "username": "Klem",
+    "zipcode": "44126",
+    "email": "klemblemthankyoumlem@gmail.com",
+    "password": "Password12345!",
+    "is_manager": false,
+    "manager_id": 1
+
+},
+{
+    "username": "Cheese",
+    "zipcode": "44032",
+    "email": "mees_cheese@aol.com",
+    "password": "Password12345#",
+    "is_manager": false,
+    "manager_id": 1
+}
+]
