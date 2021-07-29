@@ -10,7 +10,7 @@ class SearchForm extends Component{
 
     this.state = {
       search:'',
-      radio:'recipe'
+      radio:'default'
     }
   }
 
@@ -43,7 +43,7 @@ class SearchForm extends Component{
             value={this.state.search}
             onChange={this.handleSearchChange} />
       </FormGroup> 
-      <FormGroup tag="fieldset" value={this.state.radio} onChange={this.handleRadioChange}>
+      <FormGroup className= "radioField" tag="fieldset" value={this.state.radio} onChange={this.handleRadioChange}>
         <FormGroup check>
           <Label check>
             <Input 
@@ -52,8 +52,7 @@ class SearchForm extends Component{
                 name="radio1" 
                 id="recipe-radio" 
                 className="radio"
-                />{' '}
-            Option one is this and that—be sure to include why it's great
+                />Search by Recipe
           </Label>
         </FormGroup>
         <FormGroup check>
@@ -64,8 +63,7 @@ class SearchForm extends Component{
                 name="radio1" 
                 id="restaurant-radio" 
                 className="radio"
-                />{' '}
-            Option two can be something else and selecting it will deselect option one
+                />Search by Restaurant
           </Label>
         </FormGroup>
       </FormGroup>
@@ -75,7 +73,7 @@ class SearchForm extends Component{
         id= 'search-btn'
         className= 'searchbtn'
       >
-        Submit
+        Search
         </Button>
     </Form>
   );
