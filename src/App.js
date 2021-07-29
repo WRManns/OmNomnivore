@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import NavXample from "./components/Navbar/index";
-import SearchForm from "./components/SearchForm/SearchForm";
+import SearchForm from "./components/SearchForm/SearchForm"
 import Example from "./components/Card/Card"
 import Wrapper from "./components/Wrapper/index";
 import Welcome from "./components/Jumbotron/Jumbotron";
