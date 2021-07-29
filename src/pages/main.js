@@ -1,6 +1,9 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Register from "./components/register/register.js"
+import Welcome from "./components/Jumbotron/Jumbotron";
+import Register from "./components/register/register.js";
+import LogBtn from "./components/Buttons/btns.js";
+
 
 
 
@@ -11,7 +14,13 @@ function Main() {
             <Router>
             </Router>
             <Route/>
-            <Swtich/>
+            <Switch>
+            </Switch>
+            <Welcome/>
+            <LogBtn/>
+            
+
+            
             <Register/>
 
         </div>
