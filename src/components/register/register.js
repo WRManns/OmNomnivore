@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Register = (props) => {
   return (
@@ -20,5 +20,6 @@ const Register = (props) => {
         <Label style={{color: "green"}} for="Password">Password</Label>
         <Input type="password" name="password" id="password" placeholder="password" />
       </FormGroup>
+      </Form> )};
       </Form> )}
       export default Register
