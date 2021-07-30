@@ -11,7 +11,7 @@ function Main() {
             <Router>
             </Router>
             <Route/>
-            <Swtich/>
+            <Switch/>
             <Register/>
 
         </div>
