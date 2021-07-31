@@ -20,6 +20,12 @@ const Register = (props) => {
         <Label style={{color: "green"}} for="Password">Password</Label>
         <Input type="password" name="password" id="password" placeholder="password" />
       </FormGroup>
+
+      </Form> 
+      )}
+
+
       </Form> )};
       </Form> )}
+
       export default Register
