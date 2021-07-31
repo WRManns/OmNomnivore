@@ -14,6 +14,9 @@ function Main() {
             <Router>
             </Router>
             <Route/>
+<<<<<<< HEAD
+            <Switch/>
+=======
             <Switch>
             </Switch>
             <Welcome/>
@@ -21,6 +24,7 @@ function Main() {
             
 
             
+>>>>>>> 693e25f8ed1938c1552aec831dd3da47c3894d19
             <Register/>
 
         </div>
