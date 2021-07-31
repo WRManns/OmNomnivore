@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Recipe extends Model {}
+class Restaurant extends Model {}
 
 
-Recipe.init(
+Restaurant.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,15 +12,15 @@ Recipe.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    recipeID:{
+    restaurantID:{
         type: DataTypes.STRING,
         allowNull: true
     },
-    recipeName: {
+    restaurantName: {
         type: DataTypes.STRING,
         allowNull: true
     },
-    recipeLink: {
+    restaurantLink: {
         type: DataTypes.STRING,
         allowNull: true
     },
@@ -32,14 +32,14 @@ Recipe.init(
             key: 'id'
     }
   }
-},
+  },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'recipe'
+    modelName: 'restaurant'
 }
 );
 
-module.exports = Recipe;
+module.exports = Restaurant;

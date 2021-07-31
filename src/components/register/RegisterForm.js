@@ -1,10 +1,14 @@
 import React from 'react';
+<<<<<<< HEAD:src/components/register/RegisterForm.js
 import {useHistory} from 'react-router-dom';
 import { Form, FormGroup, Label, Input, Card, Button} from 'reactstrap';
 import "./register.css"
 
 function Register() {
   let history = useHistory();
+=======
+import { Form, FormGroup, Label, Input } from 'reactstrap';
+>>>>>>> c99f560fc6a5a76daec8e38a08211cc88ccc5139:src/components/register/register.js
 
   return (
   
@@ -26,6 +30,7 @@ function Register() {
         <Label style={{color: "green"}} for="Password">Password</Label>
         <Input type="password" name="password" id="password" placeholder="password" />
       </FormGroup>
+<<<<<<< HEAD:src/components/register/RegisterForm.js
       <Button onClick={()=>{history.push('/home')}} variant="secondary" size="lg">
       Register
      </Button>
@@ -33,3 +38,14 @@ function Register() {
       </Card> )}
       
       export default Register
+=======
+
+      </Form> 
+      )}
+
+
+      </Form> )};
+      </Form> )}
+
+      export default Register
+>>>>>>> c99f560fc6a5a76daec8e38a08211cc88ccc5139:src/components/register/register.js
