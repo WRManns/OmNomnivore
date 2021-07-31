@@ -5,7 +5,7 @@ import { Card, CardHeader, CardFooter, CardBody,
 const Intro= (props) => {
   return (
     <div>
-      <Card>
+      <Card style={{width: 1000}}>
         <CardHeader tag="h3">Welcome to Omnomnivore</CardHeader>
         <CardBody>
           <CardTitle tag="h5">Your App solution for Dining in or out!</CardTitle>
@@ -13,7 +13,7 @@ const Intro= (props) => {
 
 Search recipes by food name, or search for area restaurants to see their menus; Both options are available to help you set the tone for a perfect meal, either way.</CardText>
         </CardBody>
-        <CardFooter className="text-muted">Footer</CardFooter>
+        
       </Card>
     </div>
   );
