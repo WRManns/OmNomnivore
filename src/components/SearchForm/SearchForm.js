@@ -13,7 +13,7 @@ class SearchForm extends Component{
       search: {
         query: props.query,
         radio:'default',
-        list: ''
+        list: data
       }
     };
   }
@@ -38,7 +38,7 @@ class SearchForm extends Component{
   handleSubmit = event => {
     event.preventDefault()
     console.log(this.state.search);
-  
+    console.log(this.state.list);
   }
 
   render() {
