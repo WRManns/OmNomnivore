@@ -1,3 +1,7 @@
-Label {
-    color: green;
+.Register {
+    background-color: transparent;
+    margin-left: 50rem;
+    padding: 2rem;
+    border-radius: .2rem;
+    width:25rem;
 }

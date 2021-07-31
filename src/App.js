@@ -1,14 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import NavXample from "./components/Navbar/index";
-import SearchForm from "./components/SearchForm/SearchForm";
-import Example from "./components/Card/Card"
-import LogBtn from "./components/Buttons/btns.js";
-import Wrapper from "./components/Wrapper/index";
-import Welcome from "./components/Jumbotron/Jumbotron";
-import SignIn from "./components/Forms/signin.js";
-import Register from "./components/register/register.js"
-import Intro from "./components/Intoduction/Welcome.js"
+import Main from "./pages/main.js"
+import Home from "./pages/home.js"
 import "./App.css";
 
 
@@ -17,21 +10,13 @@ function App() {
     <div className="container">
       <Router>
         <Switch>
-          <Route exact path="/" />
+          <Route  path="/main" component={Main} exact/>
+          <Route  path="/home" component={Home} exact/>
         </Switch>
       </Router>
-      <Welcome />
-      <NavXample />
-        <Wrapper>
-        <SearchForm />
-          <Example>
-          </Example>
-          <SignIn>
-          </SignIn>
-          <Register/>
-          <LogBtn />
-          <Intro/>
-        </Wrapper>
+      
+      
+        
     </div>
   );
 }
