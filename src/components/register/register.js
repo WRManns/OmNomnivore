@@ -22,10 +22,6 @@ const Register = (props) => {
       </FormGroup>
 
       </Form> 
-      )}
-
-
-      </Form> )};
-      </Form> )}
+      )}    
 
       export default Register

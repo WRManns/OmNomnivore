@@ -24,8 +24,8 @@ function App() {
       <NavXample />
         <Wrapper>
         <SearchForm />
-          <Example>
-          </Example>
+          {/* <Example>
+          </Example> */}
           <SignIn>
           </SignIn>
           <Register/>

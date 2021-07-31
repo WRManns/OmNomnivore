@@ -39,21 +39,26 @@ import {List, ListItem} from "../List"
  */
 
 
-  function Recipes() {
+  function Recipes(props) {
 
-    const [test, setTests] = useState([])
+    const [test, setTests] = useState(props.restaurants)
     //const [formObject, setFormObject] = useState({})
     useEffect(() => {
-      getRecipe();
+      console.log(test)
+      if (props.restaurants) {
+        setTests(props.restaurants)
+      }
+      console.log(props.getRestaurant(), props.restaurants)
+      
     }, [])
 
-    function getRecipe() {
-      getFoodNearYou()
-      .then(res => 
-        setTests(res.data.data)
-        )
-        .catch(err => console.log(err))
-    }
+    // function getRecipe() {
+    //   getFoodNearYou()
+    //   .then(res => 
+    //     setTests(res.data.data)
+    //     )
+    //     .catch(err => console.log(err))
+    // }
     console.log(test)
 
 
@@ -64,7 +69,7 @@ import {List, ListItem} from "../List"
           <CardTitle tag="h5">Card title</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.
-          {test.length ? (
+          {/* {test.length ? (
               <List>
                 {test.map(test => {
                   return (
@@ -81,7 +86,7 @@ import {List, ListItem} from "../List"
               </List>
             ) : (
               <h3>No Results to Display</h3>
-            )}
+            )} */}
           
           </CardText>
         </CardBody>
