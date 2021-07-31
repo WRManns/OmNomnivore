@@ -1,25 +1,22 @@
-//start sequelize
 const Sequelize = require('sequelize');
-//start dotenv
 require('dotenv').config();
 
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL);
+    sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
-  //env login info 
-  sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-      host: 'localhost',
-      dialect: 'mysql',
-      port: 3306
-    }
-  );
+    sequelize = new Sequelize(
+        process.env.DB_NAME,
+        process.env.DB_USER,
+        process.env.DB_PASSWORD, {
+            host: 'localhost',
+            dialect: 'mysql',
+            port: 3306
+        }
+    );
 }
+
 
 const Documenu = require('documenu')
 Documenu.configure(process.env.API_KEY)

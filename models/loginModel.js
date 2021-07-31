@@ -58,8 +58,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "login",
+    modelName: "user",
   }
 );
 
-module.exports = LoginModel;
+module.exports = User;
