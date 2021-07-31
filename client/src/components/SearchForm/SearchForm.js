@@ -1,92 +1,101 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './SearchForm.css'
-import {data} from '../APITester';
+import { data } from '../APITester';
+import $ from 'jquery';
+import axios from 'axios'
+import Example from "../Card/Card"
 
 
-class SearchForm extends Component{
+export default function SearchForm() {
+  // const [mounted, setMounted] = useState(false);
+  const [query, setQuery] = useState('');
+  const [radio, setRadio] = useState('');
+  const [rest, setRest] = useState('Taco%20Bell');
+  const [restaurants, setRestaurants] = useState([])
+  //set state to empty value or something
 
-  constructor(props) {
-    super(props)
 
-    this.state = {
-      search: {
-        query: props.query,
-        radio:'default',
-        list: ''
-      }
-    };
+  const handleSearchChange = (event) => {
+    setQuery(event.target.value);
+
   }
 
-  componentWillMount() {
-    data.call(this);
+  const handleRadioChange = (event) => {
+    setRadio(event.target.value);
   }
 
-  handleSearchChange = (event) => {
-    var search = this.state.search;
-    search.query = event.target.value;
-  }
-
-  handleRadioChange =(event)=> {
-    var search = this.state.search;
-    search.radio = event.target.value;
-  
-
-    console.log(this.state.search.radio);
-  }
-
-  handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.search);
-  
+    let test = $('#search_input').val();
+    setRest(test)
+    console.log(test)
+    
+    //change state to have search value
   }
 
-  render() {
+  const getRestaurant = () => {
+    console.log(rest)
+
+    const testURL = 'https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=' + rest +  '&exact=true&size=10&key=8dd1d7be3d5e5a366a97dab169328b07'
+
+    axios.get(testURL).then((res) => {
+      console.log(testURL)
+      console.log(res.data.data)
+      setRestaurants(res.data.data)
+    })
+  }
+
+
   return (
-    <Form onSubmit={this.handleSubmit.bind(this)} >
+    <div>
+    <Form onSubmit={e => handleSubmit(e)} >
       <FormGroup>
-        <Input 
-            className="w-25" 
-            placeholder="enter search"
-            type="text" 
-            value={this.state.search.query}
-            onChange={this.handleSearchChange.bind(this)} />
-      </FormGroup> 
-      <FormGroup className= "radioField" tag="fieldset" value={this.state.search.radio} onChange={this.handleRadioChange.bind(this)}>
+        <Input
+          className="w-25"
+          id='search_input'
+          placeholder="enter search"
+          type="text"
+          value={query}
+          onChange={handleSearchChange} />
+      </FormGroup>
+      <FormGroup className="radioField" tag="fieldset" value={radio} onChange={handleRadioChange}>
         <FormGroup check>
           <Label check>
-            <Input 
-                type="radio" 
-                value="recipe"
-                name="radio1" 
-                id="recipe-radio" 
-                className="radio"
-                />Search by Recipe
+            <Input
+              type="radio"
+              value="recipe"
+              name="radio1"
+              id="recipe-radio"
+              className="radio"
+            />Search by Recipe
           </Label>
         </FormGroup>
         <FormGroup check>
           <Label check>
-            <Input 
-                type="radio"
-                value="restaurant" 
-                name="radio1" 
-                id="restaurant-radio" 
-                className="radio"
-                />Search by Restaurant
+            <Input
+              type="radio"
+              value="restaurant"
+              name="radio1"
+              id="restaurant-radio"
+              className="radio"
+            />Search by Restaurant
           </Label>
         </FormGroup>
       </FormGroup>
-      <Button 
+      <Button
         type='submit'
         name='search-btn'
-        id= 'search-btn'
-        className= 'searchbtn'
+        id='search-btn'
+        className='searchbtn'
       >
         Search
-        </Button>
+      </Button>
     </Form>
+    <Example getRestaurant={getRestaurant}
+    restaurants={restaurants}/>
+    </div>
   );
 
-  }
 }
-export default SearchForm;
+
