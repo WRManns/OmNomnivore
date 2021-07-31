@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './SearchForm.css'
+import {data} from '../APITester';
 
 
 class SearchForm extends Component{
@@ -9,41 +10,49 @@ class SearchForm extends Component{
     super(props)
 
     this.state = {
-      search:'',
-      radio:'default'
-    }
+      search: {
+        query: props.query,
+        radio:'default',
+        list: ''
+      }
+    };
+  }
+
+  componentWillMount() {
+    data.call(this);
   }
 
   handleSearchChange = (event) => {
-    this.setState({
-      search: event.target.value
-    })
+    var search = this.state.search;
+    search.query = event.target.value;
   }
 
   handleRadioChange =(event)=> {
-    this.setState({
-      radio: event.target.value
-    })
-    console.log(this.state.radio);
+    var search = this.state.search;
+    search.radio = event.target.value;
+  
+
+    console.log(this.state.search.radio);
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(`${this.state.search}`)
+    console.log(this.state.search);
+  
   }
 
   render() {
   return (
-    <Form onSubmit={this.handleSubmit}>
+    <Form onSubmit={this.handleSubmit.bind(this)} >
       <FormGroup>
         <Input 
             className="w-25" 
             placeholder="enter search"
             type="text" 
-            value={this.state.search}
-            onChange={this.handleSearchChange} />
+            value={this.state.search.query}
+            onChange={this.handleSearchChange.bind(this)} />
       </FormGroup> 
-      <FormGroup className= "radioField" tag="fieldset" value={this.state.radio} onChange={this.handleRadioChange}>
+      <FormGroup className= "radioField" tag="fieldset" value={this.state.search.radio} onChange={this.handleRadioChange.bind(this)}>
         <FormGroup check>
           <Label check>
             <Input 
