@@ -5,6 +5,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, } from 'rea
 import SearchSimilarFoods from './recipeSearchAPI' */
 import getFoodNearYou from  './documenu'
 import {List, ListItem} from "../List"
+// import {restaurants} from "../SearchForm"
 
 
 /* function Recipes() {
@@ -41,16 +42,8 @@ import {List, ListItem} from "../List"
 
   function Recipes(props) {
 
-    const [test, setTests] = useState(props.restaurants)
-    //const [formObject, setFormObject] = useState({})
-    useEffect(() => {
-      console.log(test)
-      if (props.restaurants) {
-        setTests(props.restaurants)
-      }
-      console.log(props.getRestaurant(), props.restaurants)
-      
-    }, [])
+    
+    // }, []);  console.log(props.getRestaurant(), props.restaurants)
 
     // function getRecipe() {
     //   getFoodNearYou()
@@ -59,7 +52,7 @@ import {List, ListItem} from "../List"
     //     )
     //     .catch(err => console.log(err))
     // }
-    console.log(test)
+    // console.log(test)
 
 
   return (
@@ -69,31 +62,32 @@ import {List, ListItem} from "../List"
           <CardTitle tag="h5">Card title</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.
-          {/* {test.length ? (
+          {props.restaurants.length ? (
               <List>
-                {test.map(test => {
+                {props.restaurants.map(test => {
                   return (
                     <ListItem key= {test.restaurant_id}>
                     <p>
                       <a href={test.restaurant_website}>
                       {test.restaurant_name}                          
                       </a> 
-                      <p> {test.restaurant_phone}  </p>
+                      
                     </p>
+                    <p> {test.restaurant_phone}  </p>
                     </ListItem>
                   );
                 })}
               </List>
             ) : (
               <h3>No Results to Display</h3>
-            )} */}
+            )} 
           
           </CardText>
         </CardBody>
       </Card>
     
   );
-
+            
 };
 
 export default Recipes;

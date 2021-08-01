@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { LoginModel } = require("././models");
+const { LoginModel } = require("../../models");
 
 
 //C- Create- Checks user into the website

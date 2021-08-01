@@ -4,20 +4,22 @@ import './SearchForm.css'
 import { data } from '../APITester';
 import $ from 'jquery';
 import axios from 'axios'
-import Example from "../Card/Card"
+import Recipes from "../Card/Card"
 
 
 export default function SearchForm() {
   // const [mounted, setMounted] = useState(false);
   const [query, setQuery] = useState('');
   const [radio, setRadio] = useState('');
-  const [rest, setRest] = useState('Taco%20Bell');
+  const [rest, setRest] = useState('Panera');
   const [restaurants, setRestaurants] = useState([])
   //set state to empty value or something
 
 
   const handleSearchChange = (event) => {
+    // let test = $('#search-input').val();
     setQuery(event.target.value);
+    setRest(event.target.value);
 
   }
 
@@ -27,29 +29,31 @@ export default function SearchForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    let test = $('#search_input').val();
-    setRest(test)
-    console.log(test)
+    
+    setRest(event.target.value)
+
     
     //change state to have search value
   }
 
-  const getRestaurant = () => {
+  const getRestaurant = (event) => {
+    event.preventDefault()
     console.log(rest)
 
-    const testURL = 'https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=' + rest +  '&exact=true&size=10&key=8dd1d7be3d5e5a366a97dab169328b07'
+    const testURL = 'https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=' +rest + '&exact=true&size=10&key=55fb253bdfe336b05d390014b8d54a58'
 
     axios.get(testURL).then((res) => {
       console.log(testURL)
       console.log(res.data.data)
       setRestaurants(res.data.data)
+      console.log(restaurants)
     })
   }
 
 
   return (
     <div>
-    <Form onSubmit={e => handleSubmit(e)} >
+    <Form onSubmit={e=>handleSubmit(e), e=> getRestaurant(e) } >
       <FormGroup>
         <Input
           className="w-25"
@@ -83,7 +87,7 @@ export default function SearchForm() {
           </Label>
         </FormGroup>
       </FormGroup>
-      <Button
+      <Button onSubmit = {e=>handleSubmit(e)}
         type='submit'
         name='search-btn'
         id='search-btn'
@@ -92,7 +96,7 @@ export default function SearchForm() {
         Search
       </Button>
     </Form>
-    <Example getRestaurant={getRestaurant}
+    <Recipes getRestaurant={getRestaurant}
     restaurants={restaurants}/>
     </div>
   );
