@@ -56,4 +56,4 @@ router.delete("/del", (req, res) => {
   })
   })
 
-  module.exports = router;
+  module.exports = restaurantRouter;
