@@ -1,105 +1,135 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './SearchForm.css'
-import { data } from '../APITester';
 import $ from 'jquery';
 import axios from 'axios'
 import Recipes from "../Card/Card"
 
 
 export default function SearchForm() {
-  // const [mounted, setMounted] = useState(false);
+
   const [query, setQuery] = useState('');
   const [radio, setRadio] = useState('');
-  const [rest, setRest] = useState('Panera');
-  const [restaurants, setRestaurants] = useState([])
-  //set state to empty value or something
+  const [rest, setRest] = useState('');
+  const [restaurants, setRestaurants] = useState([]);
+  const [recipe, setRecipes] = useState('');
+  const [recipesObj, setRecipeObj] = useState([]);
+
 
 
   const handleSearchChange = (event) => {
-    // let test = $('#search-input').val();
+
     setQuery(event.target.value);
-    setRest(event.target.value);
+
+    // if (radio.value == "restaurant") {
+      setRest(event.target.value)
+    // } else {
+    //   setRecipes(event.target.value)
+    // }
 
   }
 
   const handleRadioChange = (event) => {
     setRadio(event.target.value);
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    
-    setRest(event.target.value)
-
-    
-    //change state to have search value
+    console.log(radio)
   }
 
   const getRestaurant = (event) => {
     event.preventDefault()
-    console.log(rest)
+    // if (radio.value == "restaurant") {
+      console.log(rest)
+      console.log(radio)
+      const restaurantURL = 'https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=' + rest + '&exact=true&size=10&key=55fb253bdfe336b05d390014b8d54a58'
 
-    const testURL = 'https://api.documenu.com/v2/restaurants/search/fields?restaurant_name=' +rest + '&exact=true&size=10&key=55fb253bdfe336b05d390014b8d54a58'
+      axios.get(restaurantURL).then((res) => {
+        console.log(restaurantURL)
+        console.log(res.data.data)
+        setRestaurants(res.data.data)
+        console.log(restaurants)
+      });
 
-    axios.get(testURL).then((res) => {
-      console.log(testURL)
-      console.log(res.data.data)
-      setRestaurants(res.data.data)
-      console.log(restaurants)
-    })
+    // } else {
+
+    //   console.log(recipe)
+    //   console.log(radio)
+
+    //   const recipeURL = {
+    //     method: 'GET',
+    //     url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
+    //     params: {
+    //       query: recipe,
+
+    //     },
+    //     headers: {
+    //       'x-rapidapi-key': '83880f65f7mshad8dbb70fd491d8p1aad41jsn9100b230787d',
+    //       'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    //     }
+    //   };
+
+    //   axios.request(recipeURL).then(function (res) {
+    //     console.log(recipeURL)
+    //     console.log(res.data.results)
+    //     setRecipeObj(res.data.results)
+    //   }).catch(function (error) {
+    //     console.error(error);
+    //   });
+    // }
   }
 
 
   return (
     <div>
-    <Form onSubmit={e=>handleSubmit(e), e=> getRestaurant(e) } >
-      <FormGroup>
-        <Input
-          className="w-25"
-          id='search_input'
-          placeholder="enter search"
-          type="text"
-          value={query}
-          onChange={handleSearchChange} />
-      </FormGroup>
-      <FormGroup className="radioField" tag="fieldset" value={radio} onChange={handleRadioChange}>
-        <FormGroup check>
-          <Label check>
-            <Input
-              type="radio"
-              value="recipe"
-              name="radio1"
-              id="recipe-radio"
-              className="radio"
-            />Search by Recipe
-          </Label>
+      <Form onSubmit={e => getRestaurant(e)} >
+        <FormGroup>
+          <Input
+            className="w-25"
+            id='search_input'
+            placeholder="enter search"
+            type="text"
+            value={query}
+            onChange={handleSearchChange} />
         </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input
-              type="radio"
-              value="restaurant"
-              name="radio1"
-              id="restaurant-radio"
-              className="radio"
-            />Search by Restaurant
-          </Label>
+        <FormGroup className="radioField" tag="fieldset" value={radio} onChange={handleRadioChange}>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                value="recipe"
+                name="radio1"
+                id="recipe-radio"
+                className="radio"
+              />Search by Recipe
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                value="restaurant"
+                name="radio1"
+                id="restaurant-radio"
+                className="radio"
+              />Search by Restaurant
+            </Label>
+          </FormGroup>
         </FormGroup>
-      </FormGroup>
-      <Button onSubmit = {e=>handleSubmit(e)}
-        type='submit'
-        name='search-btn'
-        id='search-btn'
-        className='searchbtn'
-      >
-        Search
-      </Button>
-    </Form>
-    <Recipes getRestaurant={getRestaurant}
-    restaurants={restaurants}/>
+        <Button
+          type='submit'
+          name='search-btn'
+          id='search-btn'
+          className='searchbtn'
+        >
+          Search
+        </Button>
+      </Form>
+      <Recipes
+        getRestaurant={getRestaurant}
+        restaurants={restaurants}
+        recipesOjb={recipesObj}
+        radio={radio}
+      />
     </div>
   );
-
+  
 }
 
