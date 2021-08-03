@@ -52,16 +52,28 @@ import {List, ListItem} from "../List"
           {props.restaurants.length ? (
               <List>
                 {props.restaurants.map(test => {
+                  console.log(test)
                   return (
-                    <ListItem key= {test.restaurant_id}>
+                    
+                  <ListItem key= {test.restaurant_id}>
                     <p>
                       <a href={test.restaurant_website}>
                       {test.restaurant_name}                          
                       </a> 
-                      
                     </p>
-                    <p> {test.restaurant_phone}  </p>
-                    </ListItem>
+                    <p> {test.restaurant_phone} </p>
+
+                    {/* <List>
+                      {props.restaurants.menus[0].menu_sections.map(menuTest => {
+                        return(
+                          <ListItem key= {menuTest.sections_name}>
+                            <p>{menuTest.description}</p>
+                          </ListItem>
+                      );
+                    })}
+                    </List>   */}
+
+                  </ListItem>
                   );
                 })}
               </List>
