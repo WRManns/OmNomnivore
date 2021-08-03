@@ -16,8 +16,8 @@ return(
     <NavXample />
     <Wrapper>
     <SearchForm />
-      <Example>
-      </Example>
+      {/* <Example>
+      </Example> */}
     </Wrapper> 
 
     </div>

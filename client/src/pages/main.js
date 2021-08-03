@@ -13,8 +13,10 @@ function Main() {
 
             
             <Intro/>
+            <div class="container row d-flex inline justify-space-between">
             <SignIn/>
             <RegisterForm/>
+            </div>
             
             
 
