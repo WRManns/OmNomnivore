@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, } from 'reactstrap';
+import { Button, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, } from 'reactstrap';
 // import "./style.css";
 /* import AutoCompleteRecipe from './recipeAutoAPI'
 import SearchSimilarFoods from './recipeSearchAPI' */
-import getFoodNearYou from  './documenu'
-import {List, ListItem} from "../List"
+import {List, ListItem} from "../List/index"
+import { Link } from "react-router-dom";
 
 
 /* function Recipes() {
@@ -37,7 +37,7 @@ import {List, ListItem} from "../List"
     } 
   }
  */
-
+ 
 
   function Recipes(props) {
     // const radioValue = props.radio.value
@@ -52,16 +52,22 @@ import {List, ListItem} from "../List"
           {props.restaurants.length ? (
               <List>
                 {props.restaurants.map(test => {
+                  console.log(test)
                   return (
-                    <ListItem key= {test.restaurant_id}>
+                    
+                  <ListItem key= {test.restaurant_id}>
                     <p>
                       <a href={test.restaurant_website}>
                       {test.restaurant_name}                          
                       </a> 
-                      
                     </p>
-                    <p> {test.restaurant_phone}  </p>
-                    </ListItem>
+                    <p> {test.restaurant_phone} </p>
+
+                    <Button>
+                        <Link to="/menu" style={{ textDecoration: 'none', color: 'white'}}>Menu</Link>                                                 
+                    </Button>
+
+                  </ListItem>
                   );
                 })}
               </List>
