@@ -51,8 +51,15 @@ import { Link } from "react-router-dom";
   return (
       <Card>
         <CardBody>
+
     
           {props.recipeItems ? (
+
+          <CardTitle tag="h5">Bon Apetite</CardTitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
+          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.
+          {props.restaurants.length ? (
+
               <List>
                 {props.recipeItems.map(test => {
                   console.log(test)
