@@ -13,7 +13,7 @@ function Main() {
 
             
             <Intro/>
-            <div class="container row d-flex inline justify-space-between">
+            <div class="container row d-flex inline justify-content-md-center">
             <SignIn/>
             <RegisterForm/>
             </div>
