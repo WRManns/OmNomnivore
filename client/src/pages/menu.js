@@ -15,8 +15,8 @@ function Menu(props) {
     const [menuItems, setMenuItems] = useState();
 
     const params = {
-        "size":1,
-        "page":1,
+        "size": 1,
+        "page": 1,
         "fullmenu": true
     };
 
@@ -28,7 +28,11 @@ function Menu(props) {
                 const menu_array = []
                 console.log(res.data)
                 for (let i = 0; i < 10; i++) {
-                    menu_array.push(res.data[i].menus[0].menu_sections[0].menu_items)
+                    for (let j = 0; j < res.data[i].menus.length; j++) {
+                        for (let k = 0; k < res.data[i].menus[j].menu_sections.length; k++) {
+                          menu_array.push(res.data[i].menus[j].menu_sections[k].menu_items)
+                        }
+                    }
                 }
                 setMenuItems(menu_array)
             })
@@ -38,7 +42,14 @@ function Menu(props) {
         <div className="container">
             <NavXample />
             <Wrapper>
-                <MenuCard menuItems={menuItems} />
+                {menuItems ? (menuItems.map(test => {
+                    return <MenuCard menuItems={test} />
+                })
+                ) : (
+                    <p>No Results to Display</p>
+                )
+            }
+
             </Wrapper>
 
         </div>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import {Link} from 'react-router-dom';
 import {
   Collapse,
+  Button,
   Navbar,
   NavbarToggler,
   // NavbarBrand,
@@ -9,29 +12,37 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
+import API from '../../utils/API';
 import './style.css';
 
 const NavXample = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  let history = useHistory();
 
   const toggle = () => setIsOpen(!isOpen);
+  // const handleClick = () => {
+  //   API.logout().then(res => {
+  //     console.log(res)
+  //     if (res.status === 404) {
+  //       history.push("/main")
+  //     }
+  //   })
+  // }
 
   return (
     <div>
       <Navbar >
         <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+  
             <NavItem>
-              <NavLink href="/components/">Saved Recipes</NavLink>
+                    <Button>
+                      <Link to={{ pathname: "/", state: props.query }} style={{ textDecoration: 'none', color: 'white' }}>Logout</Link>
+                    </Button>
+              {/* <Button onClick={handleClick}variant="secondary" size="sm">Logout</Button> */}
             </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Saved Restaurants</NavLink>
-            </NavItem>
-          </Nav>
-          <NavbarText>Login/Logout
+          
+          <NavbarText >
           </NavbarText>
-        </Collapse>
       </Navbar>
     </div>
   );
