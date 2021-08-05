@@ -19,8 +19,7 @@ const MenuList = (props) => {
           <div>
           {props.menuItems ? (
               <List>
-                {props.menuItems.map(test => {
-                  test.map(item => {
+                {props.menuItems.map(item => {
                     console.log(item)
                     return (
                     
@@ -32,10 +31,7 @@ const MenuList = (props) => {
     
                       </ListItem>
                      );
-                  })
-              
-               
-                })}
+                  })}
               </List>
             
             ) : (

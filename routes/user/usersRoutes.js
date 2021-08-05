@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const { LoginModel } = require("../../models");
+const { User } = require("../../models");
 
 
 //C- Create- Checks user into the website
 router.post("/", (req, res) => {
   console.log("singup api route")
-    LoginModel.create({
+    User.create({
       username: req.body.username,
       password: req.body.password,
       zipcode: req.body.zipcode,
@@ -31,13 +31,14 @@ router.post("/", (req, res) => {
 //C- Verifies and checks for user in system
 router.post("/login", (req, res) => {
     console.log("logged in")
-    console.log(req.session)
-    LoginModel.findOne({
+    console.log(req.body)
+    User.findOne({
       where: {
         username: req.body.username,
       },
     })
       .then((userInfo) => {
+        console.log(userInfo.username)
         if (!userInfo) {
           res.status(400).json({ message: "Username doesn't exist!" });
           return;
@@ -46,6 +47,7 @@ router.post("/login", (req, res) => {
         const validPassword = userInfo.checkPassword(req.body.password);
   
         if (!validPassword) {
+          console.log("invalid password")
           res.status(400).json({ message: "Incorrect password!" });
           return;
         }
@@ -54,9 +56,9 @@ router.post("/login", (req, res) => {
           req.session.username = userInfo.username;
           req.session.loggedIn = true;
           req.session.zipcode = userInfo.zipcode;
-          console.log("login complete!!!!!!!!!!!!!!!!!!!!!")
-          res.json({ user: userInfo, message: "Login complete! Welcome!" });
         });
+        console.log("login complete!!!!!!!!!!!!!!!!!!!!!")
+        res.json({ user: userInfo.username, message: "Login complete! Welcome!" });
       })
       .catch((err) => {
         console.log(err);
@@ -76,7 +78,7 @@ router.post("/login", (req, res) => {
 
 // R- gets the API users
 router.get("/", (req, res) => {
-  LoginModel.findAll({
+  User.findAll({
     attributes: { exclude: ["password"] },
   })
     .then((userInfo) => res.json(userInfo))
@@ -88,7 +90,7 @@ router.get("/", (req, res) => {
 
 // R- gets a single user
 router.get("/:id", (req, res) => {
-  LoginModel.findOne({
+  User.findOne({
     attributes: { exclude: ["password"] },
     where: {
       id: req.params.id,
@@ -124,7 +126,7 @@ router.get("/:id", (req, res) => {
 
 // U- update users
 router.put("/:id", (req, res) => {
-  LoginModel.update(req.body, {
+  User.update(req.body, {
     individualHooks: true,
     where: {
       id: req.params.id,
@@ -145,7 +147,7 @@ router.put("/:id", (req, res) => {
 
 // D- Delete a user
 router.delete("/:id", (req, res) => {
-  LoginModel.destroy({
+  User.destroy({
     where: {
       id: req.params.id,
     },

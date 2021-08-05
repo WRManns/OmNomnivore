@@ -15,7 +15,7 @@ export default function SearchForm() {
   const [query, setQuery] = useState('');
   const [radio, setRadio] = useState('');
   const [rest, setRest] = useState('');
-  const [resto, setResto] =useState('');
+  const [resto, setResto] = useState('');
   const [restaurants, setRestaurants] = useState([]);
   const [recipe, setRecipes] = useState('');
   const [recipeID, setRecipeID] = useState('');
@@ -24,16 +24,16 @@ export default function SearchForm() {
   const [menuItems, setMenuItems] = useState([]);
 
 
- 
+
 
   const handleSearchChange = (event) => {
-    
+
     setQuery(event.target.value);
 
-    if(radio=="restaurant"){
-    setRest(event.target.value)
+    if (radio == "restaurant") {
+      setRest(event.target.value)
     } else {
-    setRecipes(event.target.value)
+      setRecipes(event.target.value)
     }
   }
 
@@ -46,26 +46,31 @@ export default function SearchForm() {
     event.preventDefault()
     console.log(rest, menuItems)
 
-    if(radio=="restaurant"){
-    const params = {
-      "size":1,
-      "page":1,
-      "fullmenu": true
-    };
+    if (radio == "restaurant") {
+      const params = {
+        "size": 1,
+        "page": 1,
+        "fullmenu": true
+      };
 
-     Documenu.Restaurants.getByZipCode(query, params)
-    .then(res=> { 
-      const rest_name_array = []
-      const menu_array = []
-      for(let i= 0; i < 10; i++){
-        rest_name_array.push(res.data[i]);
-        menu_array.push(res.data[i].menus[0].menu_sections[0].menu_items)
-      }
-      setRestaurants(rest_name_array)
-      setMenuItems(menu_array)
-    })
+      Documenu.Restaurants.getByZipCode(query, params)
+        .then(res => {
+          const rest_name_array = []
+          const menu_array = []
+          for (let i = 0; i < 10; i++) {
+            rest_name_array.push(res.data[i]);
+            for (let j = 0; j < res.data[i].menus.length; j++) {
+              for (let k = 0; k < res.data[i].menus[j].menu_sections.length; k++) {
+                menu_array.push(res.data[i].menus[j].menu_sections[k].menu_items)
+              }
+            }
 
-  } else {
+          }
+          setRestaurants(rest_name_array)
+          setMenuItems(menu_array)
+        })
+
+    } else {
       console.log(recipe)
       console.log(radio)
 
@@ -86,9 +91,9 @@ export default function SearchForm() {
         console.log(recipeURL)
         console.log(res.data.results)
         const recipe_array = []
-        for(let i= 0; i < 10; i++){
+        for (let i = 0; i < 10; i++) {
           recipe_array.push(res.data.results[i]);
-        
+
         }
         setRecipeItems(recipe_array)
       }).catch(function (error) {
@@ -115,7 +120,7 @@ export default function SearchForm() {
             <Label check>
               <Input
                 type="radio"
-                value = 'recipe'
+                value='recipe'
                 name="radio1"
                 id="recipe-radio"
                 className="radio"
@@ -143,15 +148,15 @@ export default function SearchForm() {
           Search
         </Button>
       </Form>
-    <Restaurant
-      getRestaurant={getRestaurant}
-      restaurants={restaurants}
-      recipeItems={recipeItems}
-      query={query}
-      radio={radio}
+      <Restaurant
+        getRestaurant={getRestaurant}
+        restaurants={restaurants}
+        recipeItems={recipeItems}
+        query={query}
+        radio={radio}
       />
 
-  </div>
+    </div>
   );
 }
 

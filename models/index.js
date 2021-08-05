@@ -4,6 +4,7 @@ const User = require('./loginModel');
 const Restaruant = require('./restaurantModel');
 
 
+
 User.hasMany(Recipe, {
     foreignKey: 'user_id'
 })

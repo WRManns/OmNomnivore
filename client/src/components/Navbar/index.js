@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import {
   Collapse,
   Navbar,
@@ -9,12 +10,22 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
+import API from '../../utils/API';
 import './style.css';
 
 const NavXample = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  let history = useHistory();
 
   const toggle = () => setIsOpen(!isOpen);
+  const handleClick = () => {
+    API.logout().then(res => {
+      console.log(res)
+      if (res.status === 404) {
+        history.push("/main")
+      }
+    })
+  }
 
   return (
     <div>
@@ -29,7 +40,7 @@ const NavXample = (props) => {
               <NavLink href="https://github.com/reactstrap/reactstrap">Saved Restaurants</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Login/Logout
+          <NavbarText onClick={handleClick}>Login/Logout
           </NavbarText>
         </Collapse>
       </Navbar>
