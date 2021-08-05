@@ -9,12 +9,12 @@ font-weight: bolder;
 }
 .SignIn {
     background-color: transparent;
+    margin-left: 2rem;
     padding: 2rem;
     border-radius: .2rem;
     width:25rem;
-
+    margin-left: 2rem;
 }
-H1 {
-    margin-left: 5rem;
+h1 {
     color: green;
 }

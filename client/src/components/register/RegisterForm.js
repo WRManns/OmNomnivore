@@ -9,7 +9,8 @@ function Register() {
   return (
   
     <Card  className="Register">
-    <Form>
+     <Form id="registerForm" name="registerForm">
+      <Label for = "registerForm" style={{color:"green", fontSize:35}} >Register</Label>
       <FormGroup>
         <Label style={{color: "green"}} for="email">Email</Label>
         <Input type="email" name="email" id="email" placeholder="email" />
