@@ -19,7 +19,7 @@ export default function SearchForm() {
   const [restaurants, setRestaurants] = useState([]);
   const [recipe, setRecipes] = useState('');
   const [recipeID, setRecipeID] = useState('');
-  const [recipesObj, setRecipeObj] = useState([]);
+  const [recipeItems, setRecipeItems] = useState([]);
   const [menuSections, setMenuSections] = useState([]);
   const [menuItems, setMenuItems] = useState([]);
 
@@ -85,7 +85,12 @@ export default function SearchForm() {
       axios.request(recipeURL).then(function (res) {
         console.log(recipeURL)
         console.log(res.data.results)
-        setRecipeObj(res.data.results)
+        const recipe_array = []
+        for(let i= 0; i < 10; i++){
+          recipe_array.push(res.data.results[i]);
+        
+        }
+        setRecipeItems(recipe_array)
       }).catch(function (error) {
         console.error(error);
       });
@@ -125,7 +130,7 @@ export default function SearchForm() {
                 name="radio1"
                 id="restaurant-radio"
                 className="radio"
-              />Search by Restaurant
+              />Search Restaurants by ZipCode
             </Label>
           </FormGroup>
         </FormGroup>
@@ -141,11 +146,11 @@ export default function SearchForm() {
     <Restaurant
       getRestaurant={getRestaurant}
       restaurants={restaurants}
+      recipeItems={recipeItems}
       query={query}
+      radio={radio}
       />
-      <MenuItems
-      getRestaurant={getRestaurant}
-      menuItems={menuItems}/>
+
   </div>
   );
 }
